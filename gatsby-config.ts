@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from "gatsby";
+require("dotenv").config();
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -11,6 +12,19 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `m5aqew7fp7sv`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
+      },
+    },
+
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,

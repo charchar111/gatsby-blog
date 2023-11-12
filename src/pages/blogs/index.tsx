@@ -7,9 +7,9 @@ export default function Bloging({ data }: PageProps<Queries.BlogPostsQuery>) {
   console.log();
   return (
     <Layout title="bloooooooog!">
-      {data.allMdx.nodes.map((file, index) => (
-        <Link to={`/blogs/${file.frontmatter?.slug}`}>
-          <section key={index}>
+      <section className="grid">
+        {data.allMdx.nodes.map((file, index) => (
+          <Link key={index} to={`/blogs/${file.frontmatter?.slug}`}>
             <article>
               <h3>{file.frontmatter?.title}</h3>
               <h5>
@@ -19,10 +19,10 @@ export default function Bloging({ data }: PageProps<Queries.BlogPostsQuery>) {
 
               <p>{file.excerpt}</p>
             </article>
-            <hr></hr>
-          </section>
-        </Link>
-      ))}
+            {/* <hr></hr> */}
+          </Link>
+        ))}
+      </section>
       {/* {data.allFile.nodes.map((file, index) => (
         <li key={index}>{file.name}</li>
       ))} */}
