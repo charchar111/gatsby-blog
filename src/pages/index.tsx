@@ -6,7 +6,7 @@ import Seo from "../components/Seo";
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image";
 
 export default function IndexPage({ data }: PageProps<Queries.StickersQuery>) {
-  // console.log(data.allContentfulStickerPack.nodes);
+  console.log(data);
   return (
     <Layout title="welcome to my dev sticker shop">
       <div className="main-banner">
